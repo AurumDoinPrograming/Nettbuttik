@@ -56,10 +56,15 @@ struct ContentView: View {
                     }
                 }
             }
-            .navigationBarTitle("Products")
+            .navigationBarTitle("HOME")
             .onAppear {
                 Api().getProducts { products in
                     self.products = products
+                }
+            }
+            Form {
+                Section {
+                    Text("Handlekurv")
                 }
             }
         }
@@ -77,8 +82,38 @@ struct ProductView: View {
                 .font(.subheadline)
             Text(product.description)
                 .font(.body)
+            
+            Button(action: {
+                
+            }) {
+                Image(systemName: "cart")
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            }
+
         }
         .padding()
     }
 }
 
+struct MainView: View {
+    var body: some View {
+        TabView {
+            ContentView()
+                .tabItem {
+                    Label("Products", systemImage: "list.dash")
+                }
+
+            ProductView(product: Product(id: 1, title: "title", price: 100, description: "beskrivelse", category: "kategori"))
+                .tabItem {
+                    Label("Order", systemImage: "square.and.pencil")
+                }
+            ProductView(product: Product(id: 1, title: "title", price: 100, description: "beskrivelse", category: "kategori"))
+                .tabItem {
+                    Label("Users", systemImage: "multiply")
+                }
+        }
+    }
+}
