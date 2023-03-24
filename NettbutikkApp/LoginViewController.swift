@@ -2,24 +2,16 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import GoogleSignIn
-
-override func viewDidLoad() {
-    super.viewDidLoad()
-    
-    let googleSignInButton = GIDSignInButton()
-    googleSignInButton.center = view.center
-    view.addSubview(googleSignInButton)
-}
-
 class LoginViewController: UIViewController {
-
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
 
+        let googleSignInButton = GIDSignInButton()
+        googleSignInButton.center = view.center
+        view.addSubview(googleSignInButton)
+    }
+}
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
 

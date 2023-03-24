@@ -8,7 +8,5 @@ target 'NettbutikkApp' do
   # Pods for NettbutikkApp
   pod 'Alamofire', '~> 5.5'
   pod 'SwiftyJSON', '~> 5.0'
-  pod 'Firebase/Analytics'
-  pod 'Firebase/Auth'
   pod 'GoogleSignIn'
 end
